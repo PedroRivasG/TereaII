@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-12 py-4">
+            <h1 class="display-5">Registro de Estudiantes</h1>
+            <button class="btn btn-primary" style="margin: 10px" routerLink="/home" routerLinkActive="active"> Inicio</button>
+            <button type="" class="btn btn-primary" style="margin: 10px" routerLink="/listado" routerLinkActive="active"> Lista de Estudiantes</button>
+        </div>
+        <div class="col-12 py-4">
+            <form class="col-12">
+                <div class="mb-3 ">
+                    <label for="nombre " class="form-label ">Nombre</label>
+                    <input type="text " [(ngModel)]="usuario.nombre " class="form-control " name="nombre " placeholder="Nombre ">
+                </div>
+                <div class="mb-3 ">
+                    <label for="direccion " class="form-label ">Direccion</label>
+                    <input type="text " [(ngModel)]="usuario.direccion " class="form-control " name="direccion " placeholder="Direccion ">
+                </div>
+                <button class="btn btn-primary" type="button" (click)="enviarPos()" routerLink="/listado" routerLinkActive="active">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+</div>

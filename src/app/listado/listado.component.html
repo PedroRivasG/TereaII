@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-12 py-4">
+            <h1 class="display-5">Listado de Estudiantes</h1>
+            <button class="btn btn-primary" style="margin: 10px" routerLink="/home" routerLinkActive="active"> Inicio</button>
+            <button class="btn btn-primary" style="margin: 10px" routerLink="/registro" routerLinkActive="active">Agregar Estudiante</button>
+
+        </div>
+
+        <div class="col-3 mt-2" *ngFor="let u of usuarios">
+
+            <div class=" card " style="width: 18rem; ">
+                <img src="https://www.seekpng.com/png/full/356-3562377_personal-user.png " class="card-img-top " alt="... ">
+                <div class="card-body ">
+                    <h5 class="card-title ">{{u.nombre}}</h5>
+                    <p class="card-text ">Dirección: {{ u.direccion }}</p>
+                    <a class="btn btn-primary " type="submit" (click)="update(u.id)" [routerLink]="['/actualizar/', u.id]" routerLinkActive=" active">Editar</a>
+                    <a class=" btn btn-danger " (click)="delete(u.id) " [routerLink]="['/listado']">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
