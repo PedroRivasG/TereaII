@@ -1,43 +1,40 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { estudiante } from '../entidades/estudiante';
-import { Router } from '@angular/router';
-
 
 @Component({
-  selector: 'app-listado',
-  templateUrl: './listado.component.html',
-  styleUrls: ['./listado.component.css']
+  selector: 'app-listar-uno',
+  templateUrl: './listar-uno.component.html',
+  styleUrls: ['./listar-uno.component.css']
 })
-export class ListadoComponent implements OnInit {
+export class ListarUnoComponent implements OnInit {
 
- 
   usuario:estudiante= {} as estudiante;
   usuarios:any;
+  mostrar='listado'
+  id: string | null ;
 
 
-  constructor(private http:HttpClient, private router:Router) { 
-    
-    http.get('https://frozen-meadow-48728.herokuapp.com/todos')
-    .subscribe(response=>{
-      this.usuarios=response;
-    });
-  } 
+  constructor(private http:HttpClient,private aRouter: ActivatedRoute, private router:Router) { 
+    this.id= this.aRouter.snapshot.paramMap.get('id');
 
-  mostrarUno(id:number): void {
-    this.http.get<estudiante>('https://frozen-meadow-48728.herokuapp.com/uno/'+id)
+    this.http.get<estudiante>('https://frozen-meadow-48728.herokuapp.com/uno/'+this.id)
     .subscribe(Response=>{ 
       console.log(Response);
-      this.usuario=Response;   
+       this.usuarios=Response;
     })
-  }
+  } 
+
+  
 
   update(id:number): void {
+    //this.router.navigate(['/actualizar', id])
+    
     this.http.get<estudiante>('https://frozen-meadow-48728.herokuapp.com/uno/'+id)
     .subscribe(Response=>{ 
       console.log(Response);
       this.usuario=Response;
-      
     })
   }
 
@@ -49,12 +46,11 @@ export class ListadoComponent implements OnInit {
     });
   }
   
-
-
   delete(id:number){
    
     this.http.delete<estudiante>('https://frozen-meadow-48728.herokuapp.com/eliminar/'+id)
     .subscribe(Response=> { 
+      //console.log(Response)
       alert("Usuario Eliminado");
       window.location.reload();
     })
@@ -62,6 +58,7 @@ export class ListadoComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    
   }
 
 }

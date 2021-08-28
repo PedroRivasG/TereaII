@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-12 py-4">
+            <h1 class="display-5">Listado de Estudiantes</h1>
+            <button class="btn btn-primary" style="margin: 10px" routerLink="/home" routerLinkActive="active"> Inicio</button>
+            <button class="btn btn-primary" style="margin: 10px" routerLink="/registro" routerLinkActive="active">Agregar Estudiante</button>
+
+        </div>
+
+        <div class="col-3 mt-2" *ngFor="let us of usuarios">
+
+            <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header">Detalles</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{us.nombre}}</h5>
+                    <p class="card-text">{{us.direccion}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

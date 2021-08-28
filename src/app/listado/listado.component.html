@@ -15,8 +15,9 @@
                 <div class="card-body ">
                     <h5 class="card-title ">{{u.nombre}}</h5>
                     <p class="card-text ">Dirección: {{ u.direccion }}</p>
-                    <a class="btn btn-primary " type="submit" (click)="update(u.id)" [routerLink]="['/actualizar/', u.id]" routerLinkActive=" active">Editar</a>
-                    <a class=" btn btn-danger " (click)="delete(u.id) " [routerLink]="['/listado']">Eliminar</a>
+                    <a class="btn btn-primary" type="submit" (click)="update(u.id)" [routerLink]="['/actualizar/', u.id]" routerLinkActive=" active">Editar</a>
+                    <a class=" btn btn-danger" (click)="delete(u.id) " [routerLink]="['/listado']">Eliminar</a>
+                    <a class=" btn btn-info" (click)="mostrarUno(u.id) " [routerLink]="['/mostraruno/', u.id]">Detalles</a>
                 </div>
             </div>
         </div>

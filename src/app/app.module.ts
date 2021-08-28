@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ListadoComponent } from './listado/listado.component';
 import { RegistroComponent } from './registro/registro.component';
 import { ActualizarComponent } from './actualizar/actualizar.component';
+import { ListarUnoComponent } from './listar-uno/listar-uno.component';
 
 
 
@@ -17,7 +18,8 @@ import { ActualizarComponent } from './actualizar/actualizar.component';
     PrincipalComponent,
     RegistroComponent,
     ListadoComponent,
-    ActualizarComponent
+    ActualizarComponent,
+    ListarUnoComponent
   ],
   imports: [
     BrowserModule,
